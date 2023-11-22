@@ -1,5 +1,6 @@
 // create an account object
-account = {
+'use strict'
+let account = {
     name : "Philippe Prevost",
     expenses : [], // all expenses and incomes are stored in the empty arry
     income : [],
@@ -7,28 +8,19 @@ account = {
 
         const kindOfExpenses = parseFloat(prompt("what kind of expenses? 1.) Gas 2.) Leisure 3.) Food 4.) Rent "))
         // prompt to check the kind expense
-        let amount = parseFloat(prompt("How much was your expense?"))
-        
-        if (kindOfExpenses === 1){
+
+        if (kindOfExpenses === 1 || kindOfExpenses === 2 || kindOfExpenses === 3 || kindOfExpenses === 4){
             // enter which kind of expense and log the amount prompt variable
+            let amount = parseFloat(prompt("How much was your expense?"))
             console.log(amount)
-        }
-        else if (kindOfExpenses === 2){
-            console.log(amount)
-        }
-        else if (kindOfExpenses === 3){
-            console.log(amount)
-        }
-        else if (kindOfExpenses === 4){
-            console.log(amount)
+            this.expenses.push(amount)// add the entered amount into the expenses array
+            menu()
         }
         else {
             // if invalid number show an alert to correct it
             alert("please select a number between 1 and 4")
             menu()
         }
-        
-        this.expenses.push(amount), // add the entered amount into the expenses array
         menu()// call the menu() function again to show the menu prompt
     },
     addIncome() {
@@ -40,8 +32,8 @@ account = {
     listAllExpenses(){
   
     //list all the expenses in the expenses array. Use loop
-    let expensesTotal = 0;
-    for (let i= 0; i < this.expenses.length; i++) { 
+    var expensesTotal = 0;
+    for (var i= 0; i < this.expenses.length; i++) { 
         expensesTotal += this.expenses[i];
         // a loop going trought all values in the expenses array to addition them and store them in the expenseTotal variable 
     }
