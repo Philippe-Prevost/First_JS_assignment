@@ -1,15 +1,16 @@
 // create an account object
 account = {
     name : "Philippe Prevost",
-    expenses : [],
+    expenses : [], // all expenses and incomes are stored in the empty arry
     income : [],
     addExpenses() {
 
         const kindOfExpenses = parseFloat(prompt("what kind of expenses? 1.) Gas 2.) Leisure 3.) Food 4.) Rent "))
+        // prompt to check the kind expense
         let amount = parseFloat(prompt("How much was your expense?"))
         
         if (kindOfExpenses === 1){
-            
+            // enter which kind of expense and log the amount prompt variable
             console.log(amount)
         }
         else if (kindOfExpenses === 2){
@@ -22,6 +23,7 @@ account = {
             console.log(amount)
         }
         else {
+            // if invalid number show an alert to correct it
             alert("please select a number between 1 and 4")
             menu()
         }
@@ -50,6 +52,7 @@ account = {
 
     },
     getSummary(){
+    
         let expensesTotal = 0;
     for (let i= 0; i < this.expenses.length; i++) { 
         expensesTotal += this.expenses[i];
@@ -58,9 +61,11 @@ account = {
     let incomeTotal = 0;
     for (let i= 0; i < this.income.length; i++) { 
         incomeTotal += this.income[i];
+          // a loop going trought all values in the income array to addition them and store them in the incomeTotal variable
          
     }
         alert(`Total balance: ${incomeTotal - expensesTotal}\nTotal income: ${incomeTotal}\nTotal expenses: ${expensesTotal}`),
+        // display all totals using dynamic template literals
         menu()
     //summarize your total balances. It should show your total income, your total expenses and also calculate your current balances (income - expenses).
     }
@@ -70,7 +75,7 @@ account = {
     function menu(){
         // the function menu() should only be responsible to show the different choices for the user.
         const choice = parseFloat(prompt("EXPENSE TRACKER" + "\n" + "Select a choice: 1.) Add income 2.) Add expenses 3.) List all expenses 4.) Get summary 5.) Exit"));
-        // i chose if else as i am more confortable with it
+        // i chose if else mainly because i am more confortable with it
         if (choice === 1){
             account.addIncome()// depending on which number is entered on the prompt different functions get called in the account object 
         }
